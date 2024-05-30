@@ -1,34 +1,39 @@
 #!/usr/bin/env python3
 
 import logging
-
 from argparse import ArgumentParser
 
 from todos.core.constants import DEFAULT_TODO_FILE
-from todos.core.tasks import add_task, clear_tasks, list_tasks, mark_done, remove_task
-from todos.core.repl import repl
 from todos.core.logging_config import setup_logging
+from todos.core.repl import repl
+from todos.core.tasks import add_task, clear_tasks, list_tasks, mark_done, remove_task
 
 logger = logging.getLogger(__name__)
 
 
 def parse_args():
     parser = ArgumentParser(description="Simple To-Do List Manager")
-    parser.add_argument("--file", type=str, default=DEFAULT_TODO_FILE, help="The to-do list file")
+    parser.add_argument(
+        "--file", type=str, default=DEFAULT_TODO_FILE, help="The to-do list file"
+    )
     subparsers = parser.add_subparsers(dest="command", required=False)
 
     add_parser = subparsers.add_parser("add", help="Add a new task")
     add_parser.add_argument("task", type=str, help="The task to add")
 
     remove_parser = subparsers.add_parser("remove", help="Remove a task by index")
-    remove_parser.add_argument("index", type=int, help="The index of the task to remove")
+    remove_parser.add_argument(
+        "index", type=int, help="The index of the task to remove"
+    )
 
     subparsers.add_parser("list", help="List all tasks")
 
     subparsers.add_parser("clear", help="Clear all tasks")
 
     done_parser = subparsers.add_parser("done", help="Mark a task as done by index")
-    done_parser.add_argument("index", type=int, help="The index of the task to mark as done")
+    done_parser.add_argument(
+        "index", type=int, help="The index of the task to mark as done"
+    )
 
     parser.add_argument("--repl", action="store_true", help="Enter REPL mode")
 

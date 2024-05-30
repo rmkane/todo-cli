@@ -27,10 +27,7 @@ def setup_logging(
         "version": 1,
         "disable_existing_loggers": False,
         "formatters": {
-            "standard": {
-                "format": log_format,
-                "datefmt": "%Y-%m-%d %H:%M:%S"
-            }
+            "standard": {"format": log_format, "datefmt": "%Y-%m-%d %H:%M:%S"}
         },
         "handlers": {
             "file_handler": {
@@ -43,12 +40,12 @@ def setup_logging(
                 "level": logging.WARNING,
                 "formatter": "standard",
                 "class": "logging.StreamHandler",
-            }
+            },
         },
         "root": {
             "handlers": ["file_handler", "console_handler"],
             "level": default_level,
-        }
+        },
     }
 
     logging.config.dictConfig(logging_config)

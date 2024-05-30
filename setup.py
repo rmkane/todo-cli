@@ -24,11 +24,11 @@ setuptools.setup(
         "License :: OSI Approved :: GNU GPLv3",
         "Operating System :: OS Independent",
     ],
-    entry_points = {
+    entry_points={
         "console_scripts": [f"{BINARY}={MODULE_NAME}.{MAIN_FILE}:{MAIN_FUNCTION}"],
     },
     install_requires=[
-        'PyYAML',
+        "PyYAML",
     ],
-    python_requires='>=3.7',
+    python_requires=">=3.7",
 )

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
+
 import yaml
 
 logger = logging.getLogger(__name__)
@@ -20,7 +21,7 @@ def index_in_range(index, todos):
 
 def load_todos(file):
     try:
-        with open(file, 'r') as f:
+        with open(file, "r") as f:
             return yaml.safe_load(f) or []
     except FileNotFoundError:
         logger.info(f"The file {file} was not found. Starting with an empty list.")
@@ -32,7 +33,7 @@ def load_todos(file):
 
 def save_todos(todos, file):
     try:
-        with open(file, 'w') as f:
+        with open(file, "w") as f:
             yaml.safe_dump(todos, f)
     except Exception as e:
         logger.error(f"Failed to save file {file}: {e}")

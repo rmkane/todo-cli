@@ -15,6 +15,21 @@ def setup_logging(
     log_file_prefix=DEFAULT_FILE_PREFIX,
     log_format=DEFAULT_LOG_FORMAT,
 ):
+    """
+    Set up logging for the application.
+
+    This function configures two log handlers: one for writing logs to a file, and one for writing logs to the console.
+    The log file is created in the specified directory, with a name based on the current date.
+
+    :param default_level: The default logging level.
+    :type default_level: int
+    :param log_dir: The directory where the log file will be created.
+    :type log_dir: str
+    :param log_file_prefix: The prefix for the log file name.
+    :type log_file_prefix: str
+    :param log_format: The format for the log messages.
+    :type log_format: str
+    """
     # Ensure the logs directory exists
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)

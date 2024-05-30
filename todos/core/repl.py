@@ -9,6 +9,12 @@ logger = logging.getLogger(__name__)
 
 
 def repl(file):
+    """
+    Enter REPL mode for the to-do list application.
+
+    :param file: The file where the to-do list is stored.
+    :type file: str
+    """
     print(REPL_BANNER)
     print("Entering REPL mode. Type 'help' for a list of commands.")
 

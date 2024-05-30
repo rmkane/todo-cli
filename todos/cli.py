@@ -12,6 +12,12 @@ logger = logging.getLogger(__name__)
 
 
 def parse_args():
+    """
+    Parse command line arguments.
+
+    :returns: A tuple containing the parser and the parsed arguments.
+    :rtype: tuple
+    """
     parser = ArgumentParser(description="Simple To-Do List Manager")
     parser.add_argument(
         "--file", type=str, default=DEFAULT_TODO_FILE, help="The to-do list file"
@@ -41,6 +47,11 @@ def parse_args():
 
 
 def run():
+    """
+    Main function to run the cli application.
+
+    :returns: None
+    """
     setup_logging(default_level=logging.DEBUG)
     parser, args = parse_args()
 

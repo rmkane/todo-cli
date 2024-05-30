@@ -3,7 +3,14 @@
 import logging
 from argparse import ArgumentParser
 
-from todos.core.constants import DEFAULT_TODO_FILE
+from todos.core.constants import (
+    DEFAULT_TODO_FILE,
+    TASK_ADD,
+    TASK_CLEAR,
+    TASK_DONE,
+    TASK_LIST,
+    TASK_REMOVE,
+)
 from todos.core.logging_config import setup_logging
 from todos.core.repl import repl
 from todos.core.tasks import add_task, clear_tasks, list_tasks, mark_done, remove_task
@@ -24,22 +31,22 @@ def parse_args():
     )
     subparsers = parser.add_subparsers(dest="command", required=False)
 
-    add_parser = subparsers.add_parser("add", help="Add a new task")
+    add_parser = subparsers.add_parser(TASK_ADD, help="Add a new task")
     add_parser.add_argument("task", type=str, help="The task to add")
 
-    remove_parser = subparsers.add_parser("remove", help="Remove a task by index")
+    remove_parser = subparsers.add_parser(TASK_REMOVE, help="Remove a task by index")
     remove_parser.add_argument(
         "index", type=int, help="The index of the task to remove"
     )
 
-    subparsers.add_parser("list", help="List all tasks")
-
-    subparsers.add_parser("clear", help="Clear all tasks")
-
-    done_parser = subparsers.add_parser("done", help="Mark a task as done by index")
+    done_parser = subparsers.add_parser(TASK_DONE, help="Mark a task as done by index")
     done_parser.add_argument(
         "index", type=int, help="The index of the task to mark as done"
     )
+
+    subparsers.add_parser(TASK_LIST, help="List all tasks")
+
+    subparsers.add_parser(TASK_CLEAR, help="Clear all tasks")
 
     parser.add_argument("--repl", action="store_true", help="Enter REPL mode")
 
@@ -57,16 +64,16 @@ def run():
 
     if args.repl:
         repl(args.file)
-    elif args.command == "add":
+    elif args.command == TASK_ADD:
         add_task(args.task, args.file)
-    elif args.command == "remove":
+    elif args.command == TASK_REMOVE:
         remove_task(args.index, args.file)
-    elif args.command == "list":
-        list_tasks(args.file)
-    elif args.command == "clear":
-        clear_tasks(args.clear)
-    elif args.command == "done":
+    elif args.command == TASK_DONE:
         mark_done(args.index, args.file)
+    elif args.command == TASK_LIST:
+        list_tasks(args.file)
+    elif args.command == TASK_CLEAR:
+        clear_tasks(args.clear)
     else:
         parser.print_help()
 

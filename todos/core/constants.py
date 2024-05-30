@@ -25,13 +25,24 @@ The banner displayed when entering REPL mode.
 :rtype: str
 """
 
-REPL_COMMANDS = """
+# REPL commands
+TASK_ADD = "add"
+TASK_CLEAR = "clear"
+TASK_DONE = "done"
+TASK_EXIT = "exit"
+TASK_HELP = "help"
+TASK_LIST = "list"
+TASK_REMOVE = "remove"
+
+REPL_COMMANDS = f"""
 Commands:
-- add <task>
-- remove <index>
-- list
-- done <index>
-- exit
+- {TASK_ADD} <task>
+- {TASK_REMOVE} <index>
+- {TASK_DONE} <index>
+- {TASK_LIST}
+- {TASK_CLEAR}
+- {TASK_EXIT}
+- {TASK_HELP}
 """
 """
 The list of commands available in REPL mode.

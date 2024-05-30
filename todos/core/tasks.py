@@ -29,6 +29,12 @@ def clear_tasks(file):
     :param file: The file where the to-do list is stored.
     :type file: str
     """
+    # Ask for confirmation before clearing all tasks
+    confirm = input("Are you sure you want to clear all tasks? (yes/no) ")
+    if confirm.lower() != "yes":
+        print("Clearing all tasks aborted.")
+        return
+
     save_todos([], file)
     print("Cleared all tasks.")
 

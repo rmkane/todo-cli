@@ -4,6 +4,18 @@
 
 A simple command-line interface (CLI) application to manage your to-do list.
 
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Setup](#setup)
+- [Usage](#usage)
+    - [Commands](#commands)
+    - [Optional Arguments](#optional-arguments)
+- [Development](#development)
+    - [Makefile Targets](#makefile-targets)
+- [License](#license)
+
 ## Features
 
 - Add a new task

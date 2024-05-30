@@ -2,10 +2,16 @@
 __pycache__/
 *.pyc
 
-# Build
+# Environments
+.venv/
+
+# Distribution
 build/
 dist/
+
+# Python packaging
 *.egg-info/
+*.egg
 
 # Logging
 log/
@@ -13,3 +19,9 @@ log/
 
 # Generated files
 todo.yaml
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr

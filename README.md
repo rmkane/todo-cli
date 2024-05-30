@@ -20,9 +20,9 @@ A simple command-line interface (CLI) application to manage your to-do list.
 
 - Add a new task
 - Remove a task by index
+- Mark a task as done by index
 - List all tasks
 - Clear all tasks
-- Mark a task as done by index
 - Optionally specify the to-do list file
 - Enter REPL mode
 
@@ -64,6 +64,11 @@ todo-cli {add,remove,list,clear,done} [--file FILE] [--repl]
    todo-cli remove 1
    ```
 
+- **done**: Mark a task as done by index
+   ```bash
+   todo-cli done 1
+   ```
+
 - **list**: List all tasks
    ```bash
    todo-cli list
@@ -72,11 +77,6 @@ todo-cli {add,remove,list,clear,done} [--file FILE] [--repl]
 - **clear**: Clear all tasks
    ```bash
    todo-cli clear
-   ```
-
-- **done**: Mark a task as done by index
-   ```bash
-   todo-cli done 1
    ```
 
 ### Optional Arguments
